@@ -9,6 +9,7 @@
 
         <!-- Event Handlers -->
         <load module="mod_event_socket"/>
+        <load module="mod_amqp"/>
         <load module="mod_kazoo" />
 
         <!-- Directory Interfaces -->
