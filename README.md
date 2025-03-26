@@ -1,3 +1,7 @@
+BUY ME A COFFEE
+---------------
+https://buymeacoffee.com/kageds
+
 # kazoo-configs
 Kazoo Configuration Files for Software We Use
 
