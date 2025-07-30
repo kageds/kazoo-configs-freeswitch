@@ -23,6 +23,7 @@
 	<param name="exchange-name" value="freeswitch"/>
 	<param name="exchange-type" value="topic"/>
         <param name="exchange-durable" value="false"/>
+	<param name="exchange-auto-delete" value="false"/>
         <param name="content-type" value="application/json"/>
 	<param name="circuit_breaker_ms" value="10000"/>
 	<param name="reconnect_interval_ms" value="1000"/>
@@ -39,7 +40,7 @@
 	<!-- <param name="format_fields" value="#FreeSWITCH,FreeSWITCH-Hostname|#Unknown,Event-Name,Event-Subclass,Unique-ID"/> -->
 
 	<!--    <param name="event_filter" value="SWITCH_EVENT_ALL"/> -->
-	<param name="event_filter" value="SWITCH_EVENT_CHANNEL_CREATE,SWITCH_EVENT_CHANNEL_DESTROY,SWITCH_EVENT_HEARTBEAT,SWITCH_EVENT_DTMF"/>
+	<param name="event_filter" value="SHUTDOWN,PRESENCE_IN,SWITCH_EVENT_CHANNEL_CREATE,SWITCH_EVENT_CHANNEL_DESTROY,SWITCH_EVENT_HEARTBEAT,SWITCH_EVENT_DTMF,SWITCH_EVENT_CHANNEL_BRIDGE"/>
       </params>
     </profile>
   </producers>
@@ -58,12 +59,11 @@
       <params>
 	<param name="exchange-name" value="freeswitch"/>
         <param name="exchange-durable" value="false"/>
+	<param name="exchange-auto-delete" value="false"/>
         <param name="content-type" value="application/json"/>
-	<param name="binding-key" value="KAZOO.command.*"/>
+	<param name="binding-key" value="KAZOO.*.*"/>
 	<param name="reconnect_interval_ms" value="1000"/>
-	<param name="queue-passive" value="false"/>
 	<param name="queue-durable" value="false"/>
-	<param name="queue-exclusive" value="false"/>
 	<param name="queue-auto-delete" value="true"/>
       </params>
       <!-- props are added to the JSON command response-->
@@ -92,11 +92,10 @@
       <params>
         <param name="exchange-name" value="freeswitch"/>
         <param name="exchange-durable" value="false"/>
+        <param name="exchange-auto-delete" value="false"/>
         <param name="content-type" value="application/json"/>
         <param name="reconnect_interval_ms" value="1000"/>
-        <param name="queue-passive" value="false"/>
         <param name="queue-durable" value="false"/>
-        <param name="queue-exclusive" value="false"/>
         <param name="queue-auto-delete" value="true"/>
       </params>
     </profile>
